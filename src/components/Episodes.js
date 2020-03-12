@@ -4,19 +4,19 @@ import parse from 'html-react-parser';
 export default function Episodes(props) {
   return (
     <div className="episodes">
-      {props.episodes.map(e => (
-        <div className="episode" key={e.id}>
-          {e.image && (
-            <img className="episode-image" src={e.image.medium} alt={e.name} />
+      {props.episodes.map(episode => (
+        <div className="episode" key={episode.id}>
+          {episode.image && (
+            <img className="episode-image" src={episode.image.medium} alt={episode.name} />
           )}
           <div className="episode-info">
             <p className="episode-number">
-              Season {e.season}, Episode {e.number}
+              Season {episode.season}, Episode {episode.number}
             </p>
-            <h3>{e.name}</h3>
-            {e.summary && parse(e.summary)}
+            <h3>{episode.name}</h3>
+            {episode.summary && parse(episode.summary)}
             <div className="flex-spacer" />
-            <p className="episode-runtime">{e.runtime} minutes</p>
+            <p className="episode-runtime">{episode.runtime} minutes</p>
           </div>
         </div>
       ))}
